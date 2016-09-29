@@ -182,7 +182,7 @@ build-vpp-api: $(BR)/.bootstrap.ok
 PYTHON_PATH=$(BR)/python
 PYTHON_VENV_PATH=$(PYTHON_PATH)/virtualenv
 
-python-virtualenv:
+python-virtualenv: build-vpp-api
 	@virtualenv $(PYTHON_VENV_PATH)
 	@bash -c "source $(PYTHON_VENV_PATH)/bin/activate && pip install scapy"
 	@bash -c "source $(PYTHON_VENV_PATH)/bin/activate && cd $(WS_ROOT)/vpp-api/python && python setup.py install"
